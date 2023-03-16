@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled4/button.dart';
-
+import 'package:math_expressions/math_expressions.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -11,8 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var userinput ='';
-  var answer = '';
+  var userInput ='';
+  var ansWer = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +27,13 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       child: Column(
                         children: [
-                          Text(userinput,style: TextStyle(
+                          Text(userInput,style: TextStyle(
                             fontSize: 30,
-                            color: Colors.white10
+                            color: Colors.white
                           ),),
-                          Text(userinput,style: TextStyle(
+                          Text(ansWer,style: TextStyle(
                             fontSize: 30,
-                            color: Colors.white10
+                            color: Colors.white
                           ),),
                         ],
                       ),
@@ -41,63 +41,171 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                     flex: 2,
-
                     child: Column(
                       children: [
                         Row(
                           children: [
                             Mybutton(title: 'AC' ,onPress: (){
+                              userInput ='';
+                               ansWer = '';
+                               setState(() {
 
-                            },),
-                            Mybutton(title: '+/-',onPress: (){}),
-                            Mybutton(title: '%',onPress: (){}),
-                            Mybutton(title: '/',onPress: (){}),
+                               });
+                            },mycolor: Colors.orange,),
+                            Mybutton(title: '+/-',onPress: (){
+                              userInput +='+/-';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.orange,),
+                            Mybutton(title: '%',onPress: (){
+                              userInput +='%';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.orange,),
+                            Mybutton(title: '/',onPress: (){
+                              userInput +='/';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.orange,),
                           ],
                         ),
                         Row(
                           children: [
-                            Mybutton(title: '7' ,onPress: (){},),
-                            Mybutton(title: '8',onPress: (){}),
-                            Mybutton(title: '0',onPress: (){}),
-                            Mybutton(title: 'x',onPress: (){}),
+                            Mybutton(title: '7' ,onPress: (){
+                              userInput +='7';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '8',onPress: (){
+                              userInput +='8';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '9',onPress: (){
+                              userInput +='9';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: 'x',onPress: (){
+                              userInput +='x';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.orange,),
                           ],
                         ),
                         Row(
                           children: [
-                            Mybutton(title: '4' ,onPress: (){},),
-                            Mybutton(title: '5',onPress: (){}),
-                            Mybutton(title: '6',onPress: (){}),
-                            Mybutton(title: '-',onPress: (){}),
+                            Mybutton(title: '4' ,onPress: (){
+                              userInput +='4';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '5',onPress: (){
+                              userInput +='5';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '6',onPress: (){
+                              userInput +='6';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '-',onPress: (){
+                              userInput +='-';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.orange,),
                           ],
                         ),
                         Row(
                           children: [
-                            Mybutton(title: '1' ,onPress: (){},),
-                            Mybutton(title: '2',onPress: (){}),
-                            Mybutton(title: '3',onPress: (){}),
-                            Mybutton(title: '+',onPress: (){}),
+                            Mybutton(title: '1' ,onPress: (){
+                              userInput +='1';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '2',onPress: (){
+                              userInput +='2';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '3',onPress: (){
+                              userInput +='3';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '+',onPress: (){
+                              userInput +='+';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.orange,),
                           ],
                         ),
                         Row(
                           children: [
-                            Mybutton(title: '0' ,onPress: (){},),
-                            Mybutton(title: '.',onPress: (){}),
-                            Mybutton(title: 'DEL',onPress: (){}),
-                            Mybutton(title: '=',onPress: (){}),
+                            Mybutton(title: '0' ,onPress: (){
+                              userInput +='0';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '.',onPress: (){
+                              userInput +='.';
+                              setState(() {
+
+                              });
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: 'DEL',onPress: (){
+                            userInput = userInput.substring(0,userInput.length-1);
+                                  setState(() {
+
+                                  });
+
+                            },mycolor: Colors.grey,),
+                            Mybutton(title: '=',onPress: (){
+                             equalpress();
+                             setState(() {
+
+                             });
+                            },mycolor: Colors.orange,),
                           ],
                         ),
                       ],
                     ),
                   ),
-
                   SizedBox(
                     height: 10,
                   )
-
                 ],
               ),
             )
         )
     );
+  }
+
+  void equalpress(){
+    String finaluserInput = userInput.replaceAll('x', '*');
+    Parser p = Parser();
+    Expression expression = p.parse(userInput);
+    ContextModel contextModel = ContextModel();
+
+    double eval = expression.evaluate(EvaluationType.REAL,contextModel );
+    ansWer = eval.toString();
+
   }
 }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Mybutton extends StatelessWidget {
 
-      Mybutton({Key? key,required this.title,this.color = const Color(0xffa5a5a5),required  this.onPress}) : super(key: key);
+      Mybutton({Key? key,required this.title,required this.mycolor ,required  this.onPress}) : super(key: key);
       final String title;
-      final Color color ;
+      final Color mycolor ;
       final VoidCallback onPress;
 
       @override
@@ -20,7 +20,7 @@ class Mybutton extends StatelessWidget {
               height: 80,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-               color:Colors.orange,
+               color: mycolor,
               ),
               child: Center(
                 child: Text(title,
